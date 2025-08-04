@@ -206,11 +206,7 @@ class PhysicsEngine extends ChangeNotifier {
           position.dx.round() != body.position.dx.round() ||
           position.dy.round() != body.position.dy.round() ||
           velocity.distance > minimumSignificantSpeed;
-      updateBody(
-        _bodies.keys.firstWhere((key) => _bodies[key] == body),
-        position: position,
-        velocity: velocity,
-      );
+      updateBody(body.id, position: position, velocity: velocity);
     }
     // stop ticker if no significant changes were made
     if (!isChanged) {
